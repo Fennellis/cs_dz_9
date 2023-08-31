@@ -6,6 +6,11 @@
 
 Console.Write("Введите число N: ");
 int number = Convert.ToInt32(Console.ReadLine());
+if (number < 1)
+{
+    Console.Write("Некорректное значение");
+    return;
+}
 
 Console.Write($"N = {number} -> ");
 PrintRangeNatural(number);
