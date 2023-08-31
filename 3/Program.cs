@@ -5,7 +5,7 @@
 // m = 2, n = 3 -> A(m,n) = 9
 // m = 3, n = 2 -> A(m,n) = 29
 
-(int numberN, uint numberM) = Input();
+(byte numberN, uint numberM) = Input();
 
 bool n0 = numberN == 0 && numberM < Math.Pow(2,32) - 1;
 bool n1 = numberN == 1 && numberM < Math.Pow(2,32) - 1;
@@ -24,18 +24,18 @@ else
     Console.WriteLine("Результат слишком велик");
 }
 
-(int, uint) Input()
+(byte, uint) Input()
 {
     Console.Write("Введите число n: ");
-    int firstNumber = Convert.ToInt32(Console.ReadLine());
+    byte firstNumber = Convert.ToByte(Console.ReadLine());
     Console.Write("Введите число m: ");
     uint secondNumber = Convert.ToUInt32(Console.ReadLine());
     return (firstNumber, secondNumber);
 }
 
-uint Ack(int n, uint m)
+uint Ack(byte n, uint m)
 {
     if (n == 0) return m + 1;
-    else if (m == 0) return Ack(n - 1, 1);
-    else return Ack(n - 1, Ack(n, m - 1));
+    else if (m == 0) return Ack((byte)(n - 1), 1);
+    else return Ack((byte)(n - 1), Ack(n, m - 1));
 }
